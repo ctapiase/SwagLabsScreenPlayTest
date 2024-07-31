@@ -1,7 +1,7 @@
 Feature: : Comprar un producto en Swag Labs
   Como usuario
   Quiero comprar un producto en la aplicación móvil Swag Labs
-  Para verificar el proceso exitoso de compra
+  Para verificar el plsroceso exitoso de compra
 
   Background:
   Given que "SOL" ha iniciado sesión con el usuario "standard_user" y la contraseña "secret_sauce"
