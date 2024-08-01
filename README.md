@@ -1,7 +1,7 @@
 # Reto de Automatización app Swag Labs
 
 ## Descripción
-Este proyecto es una solución del reto final del curso automatización móvil con Screenplay con la app Eribank
+Este proyecto es una solución del reto final del curso automatización móvil con Screenplay con la app Swag Labs
 
 ## Casos de uso
 - Compra exitosa

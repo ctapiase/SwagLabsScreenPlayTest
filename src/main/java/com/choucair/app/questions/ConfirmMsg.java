@@ -12,7 +12,7 @@ public class ConfirmMsg implements Question <Boolean>{
     String msg;
 
     public ConfirmMsg(String msg) {
-        this.msg = "Gracias";
+        this.msg = msg;
     }
 
     @Override
@@ -21,7 +21,6 @@ public class ConfirmMsg implements Question <Boolean>{
                 WaitUntil.the(UiCheckout.MESSAGE_COMPLETED, WebElementStateMatchers.isPresent()).forNoMoreThan(3).seconds()
         );
         msg = Text.of(UiCheckout.MESSAGE_COMPLETED).answeredBy(actor);
-        System.out.println(msg + "JHJJJJJJJJJ");
         return msg.contains(Text.of(UiCheckout.MESSAGE_COMPLETED).answeredBy(actor));
     }
 
