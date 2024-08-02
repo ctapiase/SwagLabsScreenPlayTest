@@ -1,5 +1,6 @@
 package com.choucair.app.tasks;
 
+import com.choucair.app.userinterfaces.UiCar;
 import com.choucair.app.userinterfaces.UiCheckout;
 import com.choucair.moviles.libreria.interactions.choucair.builders.Scroll;
 import net.serenitybdd.screenplay.Actor;
@@ -14,6 +15,8 @@ public class MakePayment implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                Scroll.on(UiCar.CHECKOUT_BUTTON),
+                Click.on(UiCar.CHECKOUT_BUTTON),
                 Enter.theValue("name").into(UiCheckout.NAME_INPUT),
                 Enter.theValue("lastName").into(UiCheckout.LAST_NAME_INPUT),
                 Enter.theValue("postalCode").into(UiCheckout.POSTAL_CODE),

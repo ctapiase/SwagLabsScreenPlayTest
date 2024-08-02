@@ -22,8 +22,7 @@ public class ChooseProduct implements Task {
                 Scroll.on(UiHome.PRODUCT.of(productName)),
                 Click.on(UiHome.PRODUCT.of(productName)),
                 Click.on(UiPageProduct.ADD_TO_CART),
-                Click.on(UiHome.BUTTON_CAR),
-                Click.on(UiCar.CHECKOUT_BUTTON)
+                Click.on(UiHome.BUTTON_CAR)
         );
     }
 

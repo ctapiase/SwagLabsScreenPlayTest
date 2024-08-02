@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = {"src/test/resources/features/SwagLabs.feature"}
-        ,tags = ""
+        ,tags = "@MultipleProducto"
         ,glue = "stepdefinitions"
         ,plugin = {"pretty","json:target/cucumber-reports/cucumber.json"}
         ,snippets = CucumberOptions.SnippetType.CAMELCASE
