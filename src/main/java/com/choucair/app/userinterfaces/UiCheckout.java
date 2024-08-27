@@ -2,6 +2,7 @@ package com.choucair.app.userinterfaces;
 
 import io.appium.java_client.AppiumBy;
 import net.serenitybdd.screenplay.targets.Target;
+import org.openqa.selenium.By;
 
 public class UiCheckout {
     public static final Target NAME_INPUT = Target.the("Campo de texto nombre").located(AppiumBy.xpath("//android.widget.EditText[@content-desc=\"test-Nombre\"]"));
@@ -11,5 +12,7 @@ public class UiCheckout {
     public static final Target BUTTON_FINISH = Target.the("boton terminar").located(AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"test-TERMINAR\"]"));
     public static final Target MESSAGE_COMPLETED = Target.the("mensage orden completada").located(AppiumBy.xpath("//android.widget.TextView[@text=\"GRACIAS POR SU ORDEN\"]"));
     public static final Target BUTTON_RETURN_TO_MENU = Target.the("boton regresar al menu").located(AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"test-REGRESO A MENU\"]"));
+    public static final Target SUB_TOTAL = Target.the("boton regresar al menu").located(By.xpath("//android.widget.TextView[starts-with(@text, 'Subtotal:')]"));
+    public static final Target SUBTOTAL = Target.the("Subtotal text").located(AppiumBy.xpath("//android.widget.TextView[starts-with(@text, 'Subtotal')]"));
 
 }

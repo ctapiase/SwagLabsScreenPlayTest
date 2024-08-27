@@ -1,10 +1,10 @@
 package stepdefinitions;
 
 import com.choucair.app.questions.ConfirmMsg;
-import com.choucair.app.tasks.ChooseSomeProducts;
-import com.choucair.app.tasks.LogInOn;
-import com.choucair.app.tasks.ChooseProduct;
-import com.choucair.app.tasks.MakePayment;
+import com.choucair.app.questions.PriceDeleteCar;
+import com.choucair.app.questions.ValidateProductPrice;
+import com.choucair.app.questions.ValidateTotalPrice;
+import com.choucair.app.tasks.*;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -49,5 +49,35 @@ public class SwagLabsStepDefinitions {
         OnStage.theActorInTheSpotlight().attemptsTo(MakePayment.pay());
     }
 
+    @When("SOL ha agregado variios producto al carrito")
+    public void solHaAgregadoVariiosProductoAlCarrito(DataTable dataTable) {
+        OnStage.theActorInTheSpotlight().attemptsTo(ChooseSomeProducts.choose(dataTable));
+    }
+    @When("elimina el producto {string} del carrito")
+    public void eliminaElProductoDelCarrito(String product) {
+        OnStage.theActorInTheSpotlight().attemptsTo(DeleteProduct.delete(product));
+    }
+    @Then("el total del carrito se actualiza correctamente")
+    public void elTotalDelCarritoSeActualizaCorrectamente() {
+        theActorInTheSpotlight().should(seeThat(PriceDeleteCar.verifyPriceCheckout()));
+    }
+
+    @Given("que Sol ha añadido los siguientes productos al carrito:")
+    public void queSolHaAñadidoLosSiguientesProductosAlCarrito(DataTable dataTable) {
+        OnStage.theActorInTheSpotlight().attemptsTo(ChooseSomeProducts.choose(dataTable));
+
+    }
+    @When("el Sol procede al resumen de la compra")
+    public void elSolProcedeAlResumenDeLaCompra() {
+        OnStage.theActorInTheSpotlight().attemptsTo(MakePayment.pay());
+    }
+    @Then("los precios individuales se muestran correctamente:")
+    public void losPreciosIndividualesSeMuestranCorrectamente(DataTable dataTable) {
+        theActorInTheSpotlight().should(seeThat(ValidateProductPrice.validate(dataTable)));
+    }
+    @Then("el total de la compra se calcula y muestra correctamente como {float}")
+    public void elTotalDeLaCompraSeCalculaYMuestraCorrectamenteComo(Float total) {
+        theActorInTheSpotlight().should(seeThat(ValidateTotalPrice.validate(total)));
+    }
 
 }

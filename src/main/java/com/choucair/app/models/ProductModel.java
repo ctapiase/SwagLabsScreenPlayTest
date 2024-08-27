@@ -9,6 +9,8 @@ import java.util.Map;
 
 public class ProductModel {
     String products;
+    String price;
+
 
     public static List<ProductModel> setData(DataTable dataTable) {
         List<ProductModel> dates = new ArrayList<>();
@@ -23,11 +25,7 @@ public class ProductModel {
         return products;
     }
 
-    public static int getNumberOfElements(DataTable productList) {
-        return productList.height();
-    }
-
-    public static int getNumberOfElements(ProductModel productModel) {
-        return productModel.getProducts() != null ? 1 : 0;
+    public String getPrice() {
+        return price;
     }
 }
